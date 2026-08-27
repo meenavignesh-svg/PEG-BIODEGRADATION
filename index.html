@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BioHub | Animated Biodegradation Prototype</title>
+  <meta name="description" content="Interactive conceptual block diagram for the SIH biodegradation prototype." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <div>
+        <span class="eyebrow">SIH 2026 · CLEAN &amp; GREEN TECHNOLOGY</span>
+        <h1>BioHub <span>Biodegradation Flow</span></h1>
+        <p>Interactive conceptual model: waste feed → biochar–hydrogel matrix → microbial consortium → degradation intermediates → treated output.</p>
+      </div>
+      <div class="status"><i></i> SYSTEM SIMULATION</div>
+    </header>
+
+    <section class="diagram" aria-label="Animated biodegradation block diagram">
+      <div class="flow-line"><div class="energy"></div></div>
+
+      <article class="node feed" data-step="1">
+        <div class="icon">♻</div><span class="tag">INPUT</span>
+        <h2>Polymer Feed</h2><p>Target waste stream</p>
+        <div class="metric"><b>01</b><span>feed stage</span></div>
+      </article>
+
+      <div class="arrow">→</div>
+
+      <article class="node matrix" data-step="2">
+        <div class="icon">⬡</div><span class="tag">PLATFORM</span>
+        <h2>Biochar–Hydrogel</h2><p>Immobilization matrix</p>
+        <div class="matrix-grid"></div>
+        <div class="metric"><b>02</b><span>support stage</span></div>
+      </article>
+
+      <div class="arrow">→</div>
+
+      <article class="node microbes" data-step="3">
+        <div class="icon">◉</div><span class="tag">BIOLOGICAL CORE</span>
+        <h2>Microbial Consortium</h2>
+        <div class="microbe"><b>I. sakaiensis</b><small>depolymerization role</small></div>
+        <div class="microbe"><b>P. putida</b><small>intermediate utilization role</small></div>
+        <div class="microbe"><b>B. subtilis</b><small>biofilm / enzyme role</small></div>
+      </article>
+
+      <div class="arrow">→</div>
+
+      <article class="node conversion" data-step="4">
+        <div class="icon">⇌</div><span class="tag">CONVERSION</span>
+        <h2>Degradation</h2><p>Polymer → intermediates → further metabolism</p>
+        <div class="particles"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="metric"><b>04</b><span>conversion stage</span></div>
+      </article>
+
+      <div class="arrow">→</div>
+
+      <article class="node output" data-step="5">
+        <div class="icon">✓</div><span class="tag">OUTPUT</span>
+        <h2>Treated Stream</h2><p>Conceptual mineralization endpoint</p>
+        <div class="metric"><b>05</b><span>output stage</span></div>
+      </article>
+    </section>
+
+    <section class="control-panel">
+      <div><strong>PROCESS MONITOR</strong><span id="stageText">Initializing system...</span></div>
+      <div class="progress"><span id="progressBar"></span></div>
+      <button id="play" type="button">▶ Run Simulation</button>
+      <button id="reset" type="button" class="secondary">↺ Reset</button>
+    </section>
+
+    <section class="legend">
+      <div><span class="dot input"></span>Feed</div><div><span class="dot matrix-dot"></span>Matrix</div><div><span class="dot bio"></span>Biology</div><div><span class="dot output-dot"></span>Output</div>
+      <p>Conceptual visualization — not a validated operating protocol.</p>
+    </section>
+
+    <footer>BioHub · SIH 2026 prototype visualization · Team Marge Organics</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
