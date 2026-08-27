@@ -1,126 +1,145 @@
-(() => {
-  const nodes = [...document.querySelectorAll('.node')];
-  const connectors = [...document.querySelectorAll('.connector')];
-  const bar = document.getElementById('progressBar');
-  const stageText = document.getElementById('stageText');
-  const stageNum = document.getElementById('stageNum');
-  const systemStatus = document.getElementById('systemStatus');
-  const playBtn = document.getElementById('play');
-  const resetBtn = document.getElementById('reset');
-  const diagram = document.getElementById('diagram');
-  const scienceToggle = document.getElementById('scienceToggle');
-  const scienceBody = document.getElementById('scienceBody');
+(function () {
+  "use strict";
 
-  const labels = [
-    'PEG wastewater enters the process.',
-    'Waste reaches the biochar-hydrogel bed where bacteria sit.',
-    'Bacterial team is active: break polymer, use small pieces, support biofilm.',
-    'Long chains are broken into shorter pieces.',
-    'End of the path: treated water step.'
+  var cards = Array.prototype.slice.call(document.querySelectorAll(".card"));
+  var links = Array.prototype.slice.call(document.querySelectorAll(".link"));
+  var stage = document.getElementById("stage");
+  var statusEl = document.getElementById("status");
+  var statusText = statusEl ? statusEl.querySelector(".status-text") : null;
+  var stepNum = document.getElementById("stepNum");
+  var msg = document.getElementById("msg");
+  var bar = document.getElementById("bar");
+  var railFill = document.getElementById("railFill");
+  var runBtn = document.getElementById("run");
+  var resetBtn = document.getElementById("reset");
+
+  if (!cards.length || !stage || !runBtn || !resetBtn) return;
+
+  var TOTAL = cards.length;
+  var messages = [
+    "PEG wastewater enters the process.",
+    "Waste reaches the biochar-hydrogel bed.",
+    "Bacterial team is active.",
+    "Long chains are broken into shorter pieces.",
+    "End of the path: treated water."
   ];
+  var statusWords = ["Feed", "Matrix", "Biology", "Breakdown", "Output"];
 
-  const statusLabels = ['Feed', 'Matrix', 'Biology', 'Breakdown', 'Output'];
+  var timer = null;
+  var index = -1;
+  var running = false;
 
-  let timer = null;
-  let index = -1;
-  let running = false;
-
-  function setStatus(mode, text) {
-    systemStatus.classList.remove('running', 'complete');
-    if (mode) systemStatus.classList.add(mode);
-    systemStatus.querySelector('span').textContent = text;
+  function setStatus(state, text) {
+    if (statusEl) statusEl.setAttribute("data-state", state || "idle");
+    if (statusText) statusText.textContent = text || "Ready";
   }
 
-  function clearSimulation() {
+  function setProgress(pct) {
+    var p = Math.max(0, Math.min(100, pct)) + "%";
+    if (bar) bar.style.width = p;
+    if (railFill) railFill.style.width = p;
+  }
+
+  function clearAll() {
     if (timer) {
       clearTimeout(timer);
       timer = null;
     }
     running = false;
     index = -1;
-    nodes.forEach(n => n.classList.remove('active', 'completed'));
-    connectors.forEach(c => c.classList.remove('active'));
-    diagram.classList.remove('simulating');
-    bar.style.width = '0%';
-    stageNum.textContent = '0';
-    stageText.textContent = 'Press Run to see all five steps.';
-    playBtn.textContent = 'Run';
-    playBtn.classList.remove('running');
-    setStatus(null, 'Ready');
-  }
 
-  function activateStep(i) {
-    nodes.forEach((n, idx) => {
-      n.classList.remove('active');
-      if (idx < i) n.classList.add('completed');
-      else n.classList.remove('completed');
+    cards.forEach(function (c) {
+      c.classList.remove("is-active", "is-done");
     });
-    nodes[i].classList.add('active');
-    connectors.forEach((c, idx) => c.classList.toggle('active', idx < i));
-    bar.style.width = `${((i + 1) / nodes.length) * 100}%`;
-    stageNum.textContent = String(i + 1);
-    stageText.textContent = labels[i];
-    setStatus('running', statusLabels[i]);
+    links.forEach(function (l) {
+      l.classList.remove("is-on");
+    });
+    stage.classList.remove("is-running");
+
+    setProgress(0);
+    if (stepNum) stepNum.textContent = "0";
+    if (msg) msg.textContent = "Press Run to play the steps.";
+    runBtn.textContent = "Run";
+    runBtn.classList.remove("is-busy");
+    runBtn.disabled = false;
+    setStatus("idle", "Ready");
   }
 
-  function step() {
-    index++;
-    if (index >= nodes.length) {
-      running = false;
-      nodes.forEach(n => {
-        n.classList.remove('active');
-        n.classList.add('completed');
-      });
-      connectors.forEach(c => c.classList.add('active'));
-      bar.style.width = '100%';
-      stageNum.textContent = '5';
-      stageText.textContent = 'All steps shown. Press Run to watch again.';
-      playBtn.textContent = 'Run again';
-      playBtn.classList.remove('running');
-      setStatus('complete', 'Done');
-      diagram.classList.remove('simulating');
+  function showStep(i) {
+    cards.forEach(function (c, n) {
+      c.classList.toggle("is-active", n === i);
+      c.classList.toggle("is-done", n < i);
+    });
+    links.forEach(function (l, n) {
+      l.classList.toggle("is-on", n < i);
+    });
+
+    var pct = ((i + 1) / TOTAL) * 100;
+    setProgress(pct);
+    if (stepNum) stepNum.textContent = String(i + 1);
+    if (msg) msg.textContent = messages[i] || "";
+    setStatus("run", statusWords[i] || "Run");
+  }
+
+  function finish() {
+    running = false;
+    cards.forEach(function (c) {
+      c.classList.remove("is-active");
+      c.classList.add("is-done");
+    });
+    links.forEach(function (l) {
+      l.classList.add("is-on");
+    });
+    stage.classList.remove("is-running");
+    setProgress(100);
+    if (stepNum) stepNum.textContent = String(TOTAL);
+    if (msg) msg.textContent = "All steps shown. Press Run to watch again.";
+    runBtn.textContent = "Run again";
+    runBtn.classList.remove("is-busy");
+    runBtn.disabled = false;
+    setStatus("done", "Done");
+  }
+
+  function tick() {
+    index += 1;
+    if (index >= TOTAL) {
+      finish();
       return;
     }
-    activateStep(index);
-    timer = setTimeout(step, 1700);
+    showStep(index);
+    timer = setTimeout(tick, 1650);
   }
 
   function start() {
     if (running) return;
-    clearSimulation();
+    clearAll();
     running = true;
-    diagram.classList.add('simulating');
-    playBtn.textContent = 'Running…';
-    playBtn.classList.add('running');
-    setStatus('running', 'Starting');
-    stageText.textContent = 'Starting…';
-    timer = setTimeout(step, 350);
+    stage.classList.add("is-running");
+    runBtn.textContent = "Running…";
+    runBtn.classList.add("is-busy");
+    runBtn.disabled = true;
+    setStatus("run", "Starting");
+    if (msg) msg.textContent = "Starting…";
+    timer = setTimeout(tick, 280);
   }
 
-  playBtn.addEventListener('click', () => {
+  runBtn.addEventListener("click", function () {
     if (!running) start();
   });
 
-  resetBtn.addEventListener('click', clearSimulation);
+  resetBtn.addEventListener("click", function () {
+    clearAll();
+  });
 
-  nodes.forEach((node, i) => {
-    node.addEventListener('click', () => {
+  cards.forEach(function (card, i) {
+    card.addEventListener("click", function () {
       if (running) return;
-      clearSimulation();
+      clearAll();
       index = i;
-      activateStep(i);
-      stageText.textContent = labels[i];
-      setStatus(null, 'Step');
+      showStep(i);
+      setStatus("idle", "Step");
     });
   });
 
-  if (scienceToggle && scienceBody) {
-    scienceToggle.addEventListener('click', () => {
-      const open = scienceToggle.getAttribute('aria-expanded') === 'true';
-      scienceToggle.setAttribute('aria-expanded', String(!open));
-      scienceBody.hidden = open;
-    });
-  }
-
-  clearSimulation();
+  clearAll();
 })();
