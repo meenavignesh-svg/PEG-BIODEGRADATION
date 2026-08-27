@@ -4,25 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>BioHub | PEG Biodegradation · SIH 2026</title>
-  <meta name="description" content="PEG waste treatment idea using biochar-hydrogel and a microbial team. SIH 2026 Clean and Green Technology. Team Marge Organics." />
+  <meta name="description" content="3D process diagram for PEG biodegradation. Team Marge Organics · SIH 2026." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="app">
+  <main class="app diagram-only">
 
-    <div class="topbar">
-      <span class="eyebrow">SIH 2026 · Clean & Green Technology</span>
-      <span class="team-badge">Team Marge Organics</span>
-    </div>
-
-    <header class="hero">
-      <div class="hero-text">
-        <h1>BioHub <span>PEG Biodegradation</span></h1>
-        <p class="lead"><strong>Problem:</strong> PEG is used in medicines, cosmetics and industry. Heavier PEG can stay in water and soil longer before bacteria break it fully.</p>
-        <p class="lead"><strong>Our idea:</strong> Keep useful bacteria on a biochar and hydrogel bed so they stay in place longer, work on the waste, and move it step by step toward cleaner water.</p>
+    <header class="mini-bar">
+      <div>
+        <span class="eyebrow">SIH 2026 · Team Marge Organics</span>
+        <h1>BioHub <span>PEG process</span></h1>
       </div>
       <div class="status-panel">
         <div class="status" id="systemStatus">
@@ -33,26 +27,7 @@
       </div>
     </header>
 
-    <section class="metrics" aria-label="Key points">
-      <div class="metric-card">
-        <b>Target</b>
-        <span>PEG in wastewater</span>
-      </div>
-      <div class="metric-card">
-        <b>Support</b>
-        <span>Biochar + hydrogel bed</span>
-      </div>
-      <div class="metric-card">
-        <b>Biology</b>
-        <span>Three bacteria with different jobs</span>
-      </div>
-      <div class="metric-card">
-        <b>Goal</b>
-        <span>Break long chains into smaller pieces</span>
-      </div>
-    </section>
-
-    <section class="diagram" id="diagram" aria-label="Process steps">
+    <section class="diagram" id="diagram" aria-label="3D process diagram">
       <div class="flow-track"><div class="flow-energy"></div></div>
 
       <article class="node feed" data-step="0">
@@ -79,7 +54,7 @@
         </div>
         <span class="tag">Support</span>
         <h2>Biochar–hydrogel</h2>
-        <p>Porous wet bed that holds the bacteria in place.</p>
+        <p>Porous wet bed that holds the bacteria.</p>
         <div class="matrix-grid" aria-hidden="true"></div>
         <div class="metric"><span>Stage 02</span></div>
       </article>
@@ -110,7 +85,7 @@
           </div>
           <div class="microbe">
             <b>B. subtilis</b>
-            <small>Helps with biofilm and enzymes</small>
+            <small>Biofilm and enzymes</small>
           </div>
         </div>
       </article>
@@ -128,7 +103,7 @@
         </div>
         <span class="tag">Conversion</span>
         <h2>Breakdown</h2>
-        <p>Long PEG chains become shorter pieces that bacteria can use.</p>
+        <p>Long chains become shorter pieces.</p>
         <div class="particle-field">
           <i></i><i></i><i></i><i></i><i></i><i></i>
         </div>
@@ -146,69 +121,21 @@
         </div>
         <span class="tag">Output</span>
         <h2>Treated water</h2>
-        <p>End of the path after breakdown steps.</p>
+        <p>End of the path.</p>
         <div class="metric"><span>Stage 05</span></div>
       </article>
     </section>
 
-    <section class="control-panel">
-      <div class="monitor">
-        <strong>Status</strong>
-        <span id="stageText">Press Run to see all five steps.</span>
-      </div>
-      <div class="progress-wrap">
-        <div class="progress"><span id="progressBar"></span></div>
-        <div class="progress-labels">
-          <span>Feed</span><span>Matrix</span><span>Biology</span><span>Convert</span><span>Output</span>
-        </div>
-      </div>
+    <section class="control-panel compact">
+      <span id="stageText">Press Run to play the steps.</span>
+      <div class="progress"><span id="progressBar"></span></div>
       <div class="actions">
         <button id="play" type="button" class="btn-primary">Run</button>
         <button id="reset" type="button" class="btn-secondary">Reset</button>
       </div>
     </section>
 
-    <section class="science">
-      <button type="button" class="science-toggle" id="scienceToggle" aria-expanded="false">
-        <span>Notes on the design</span>
-        <span class="chevron" aria-hidden="true">▾</span>
-      </button>
-      <div class="science-body" id="scienceBody" hidden>
-        <div class="science-grid">
-          <div>
-            <h3>About PEG</h3>
-            <p>PEG dissolves in water and shows up in many products. Smaller PEG is easier for microbes to use. Larger PEG often needs to be cut shorter first. Lab tests under good conditions can show strong biodegradation.</p>
-          </div>
-          <div>
-            <h3>Why a bed?</h3>
-            <p>Biochar gives surface area. Hydrogel holds water and cells. Keeping bacteria on the bed can help them stay put and work longer than if they float free.</p>
-          </div>
-          <div>
-            <h3>Why three bacteria?</h3>
-            <p>One starts on the polymer, one uses the smaller bits, one helps with biofilm and enzymes. Papers on PEG often mention Pseudomonas and Sphingomonas. Our three names show a team idea for this demo. Lab work would choose the final strains.</p>
-          </div>
-          <div>
-            <h3>What this is not</h3>
-            <p>This page explains our idea for SIH. It is not a full plant design and we are not claiming measured removal numbers yet. Next work would be lab tests and scale planning.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="legend">
-      <div class="legend-item"><span class="dot input"></span> Feed</div>
-      <div class="legend-item"><span class="dot matrix-dot"></span> Matrix</div>
-      <div class="legend-item"><span class="dot bio"></span> Bacteria</div>
-      <div class="legend-item"><span class="dot convert"></span> Breakdown</div>
-      <div class="legend-item"><span class="dot output-dot"></span> Output</div>
-      <p class="disclaimer">Demo for SIH 2026. Not a finished plant design.</p>
-    </section>
-
-    <footer>
-      BioHub · PEG Biodegradation · SIH 2026 Clean & Green Technology · Team Marge Organics
-    </footer>
   </main>
-
   <script src="script.js"></script>
 </body>
 </html>
