@@ -3,56 +3,22 @@
 **SIH 2026 · Clean & Green Technology**  
 **Team:** Marge Organics
 
-Simple page that shows our idea for treating PEG in wastewater with a biochar-hydrogel bed and three bacteria.
+3D process diagram for our PEG wastewater idea: feed → biochar-hydrogel bed → bacterial team → breakdown → treated water.
 
-This is a demo for the hackathon. It is not a finished plant and we do not claim lab results yet.
-
----
+Demo only. Not a finished plant.
 
 ## Live page
 
-**https://meenavignesh-svg.github.io/PEG-BIODEGRADATION/**
+https://meenavignesh-svg.github.io/PEG-BIODEGRADATION/
 
-If the link shows 404:
+If 404: Settings → Pages → Deploy from branch → `main` / root → Save.
 
-1. Open the repo → **Settings** → **Pages**
-2. Source: **Deploy from a branch**
-3. Branch **main**, folder **/ (root)** → **Save**
-4. Wait a minute and open the link again
+## Run offline
 
----
-
-## Process steps
-
-1. **Polymer feed** — wastewater with PEG comes in  
-2. **Biochar–hydrogel** — wet bed that holds the bacteria  
-3. **Bacterial team** — three jobs (break polymer, use small pieces, biofilm help)  
-4. **Breakdown** — long chains become shorter  
-5. **Treated water** — end of the path  
-
-### Bacteria in this demo
-
-| Name | Job |
-|------|-----|
-| *I. sakaiensis* | Starts breaking the polymer |
-| *P. putida* | Uses the smaller pieces |
-| *B. subtilis* | Biofilm and enzymes |
-
----
+Open `index.html` in a browser.
 
 ## Files
 
-```
-index.html
-styles.css
-script.js
-README.md
-```
-
-Open `index.html` in a browser to run it offline.
-
----
-
-## Team
-
-Marge Organics · SIH 2026
+- `index.html`
+- `styles.css`
+- `script.js`
