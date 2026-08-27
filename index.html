@@ -3,164 +3,131 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>BioHub | PEG Biodegradation Prototype · SIH 2026</title>
-  <meta name="description" content="Premium interactive conceptual model of PEG biodegradation using biochar–hydrogel immobilized microbial consortium. SIH 2026 Clean & Green Technology." />
+  <title>BioHub | PEG Biodegradation · SIH 2026</title>
+  <meta name="description" content="Interactive conceptual model of PEG biodegradation using biochar–hydrogel immobilized microbial consortium. SIH 2026 Clean & Green Technology." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="bg-orbs" aria-hidden="true">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-  </div>
-
   <main class="app">
     <header class="hero">
       <div class="hero-text">
         <div class="badge-row">
-          <span class="eyebrow">SIH 2026 · CLEAN & GREEN TECHNOLOGY</span>
+          <span class="eyebrow">SIH 2026 · Clean & Green Technology</span>
           <span class="team-badge">Team Marge Organics</span>
         </div>
         <h1>BioHub <span>PEG Biodegradation</span></h1>
-        <p class="lead">Interactive systems model: polymer waste → biochar–hydrogel immobilization matrix → engineered microbial consortium → controlled degradation pathway → treated effluent.</p>
+        <p class="lead">A clear process model of how polymer waste can move through a biochar–hydrogel support and a microbial consortium toward treated water. Built for demonstration — not a plant operating manual.</p>
       </div>
       <div class="status-panel">
         <div class="status" id="systemStatus">
           <i class="pulse-dot"></i>
-          <span>SYSTEM READY</span>
+          <span>Ready</span>
         </div>
-        <div class="stage-counter">Stage <b id="stageNum">0</b> / 5</div>
+        <div class="stage-counter">Step <b id="stageNum">0</b> of 5</div>
       </div>
     </header>
 
-    <section class="diagram" id="diagram" aria-label="Animated PEG biodegradation process flow">
-      <!-- Continuous energy flow line -->
+    <section class="diagram" id="diagram" aria-label="PEG biodegradation process steps">
       <div class="flow-track">
         <div class="flow-energy"></div>
-        <div class="flow-particles" id="flowParticles"></div>
       </div>
 
-      <!-- Stage 1 -->
       <article class="node feed" data-step="0">
-        <div class="node-glow"></div>
-        <div class="icon-wrap"><div class="icon">♻</div></div>
-        <span class="tag">INPUT</span>
-        <h2>Polymer Feed</h2>
-        <p>PEG-rich waste stream</p>
-        <div class="metric"><b>01</b><span>Feed</span></div>
-        <div class="active-ring"></div>
+        <div class="icon-wrap"><span class="icon" aria-hidden="true">1</span></div>
+        <span class="tag">Input</span>
+        <h2>Polymer feed</h2>
+        <p>PEG-rich waste stream enters the treatment train.</p>
+        <div class="metric"><span>Stage 01</span></div>
       </article>
 
       <div class="connector" data-from="0"><span class="arrow-icon">→</span></div>
 
-      <!-- Stage 2 -->
       <article class="node matrix" data-step="1">
-        <div class="node-glow"></div>
-        <div class="icon-wrap"><div class="icon">⬡</div></div>
-        <span class="tag">PLATFORM</span>
-        <h2>Biochar–Hydrogel</h2>
-        <p>Immobilization & support matrix</p>
+        <div class="icon-wrap"><span class="icon" aria-hidden="true">2</span></div>
+        <span class="tag">Support</span>
+        <h2>Biochar–hydrogel</h2>
+        <p>Porous matrix that holds cells and keeps contact with the waste.</p>
         <div class="matrix-grid" aria-hidden="true"></div>
-        <div class="metric"><b>02</b><span>Matrix</span></div>
-        <div class="active-ring"></div>
+        <div class="metric"><span>Stage 02</span></div>
       </article>
 
       <div class="connector" data-from="1"><span class="arrow-icon">→</span></div>
 
-      <!-- Stage 3 -->
       <article class="node microbes" data-step="2">
-        <div class="node-glow"></div>
-        <div class="icon-wrap"><div class="icon">◉</div></div>
-        <span class="tag">BIOLOGICAL CORE</span>
-        <h2>Microbial Consortium</h2>
+        <div class="icon-wrap"><span class="icon" aria-hidden="true">3</span></div>
+        <span class="tag">Biology</span>
+        <h2>Microbial consortium</h2>
         <div class="microbe-list">
-          <div class="microbe" data-role="depoly">
+          <div class="microbe">
             <b>I. sakaiensis</b>
-            <small>Depolymerization</small>
+            <small>Chain attack / depolymerization role</small>
           </div>
-          <div class="microbe" data-role="util">
+          <div class="microbe">
             <b>P. putida</b>
-            <small>Intermediate utilization</small>
+            <small>Use of smaller intermediates</small>
           </div>
-          <div class="microbe" data-role="biofilm">
+          <div class="microbe">
             <b>B. subtilis</b>
-            <small>Biofilm & enzymes</small>
+            <small>Biofilm and enzyme support</small>
           </div>
         </div>
-        <div class="active-ring"></div>
       </article>
 
       <div class="connector" data-from="2"><span class="arrow-icon">→</span></div>
 
-      <!-- Stage 4 -->
       <article class="node conversion" data-step="3">
-        <div class="node-glow"></div>
-        <div class="icon-wrap"><div class="icon">⇌</div></div>
-        <span class="tag">CONVERSION</span>
-        <h2>Degradation Pathway</h2>
-        <p>Polymer → oligomers → metabolites</p>
+        <div class="icon-wrap"><span class="icon" aria-hidden="true">4</span></div>
+        <span class="tag">Conversion</span>
+        <h2>Degradation path</h2>
+        <p>Long chains → shorter pieces → usable metabolites.</p>
         <div class="particle-field" id="particleField">
-          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          <i></i><i></i><i></i><i></i><i></i><i></i>
         </div>
-        <div class="metric"><b>04</b><span>Conversion</span></div>
-        <div class="active-ring"></div>
+        <div class="metric"><span>Stage 04</span></div>
       </article>
 
       <div class="connector" data-from="3"><span class="arrow-icon">→</span></div>
 
-      <!-- Stage 5 -->
       <article class="node output" data-step="4">
-        <div class="node-glow"></div>
-        <div class="icon-wrap"><div class="icon">✓</div></div>
-        <span class="tag">OUTPUT</span>
-        <h2>Treated Stream</h2>
-        <p>Mineralization endpoint</p>
-        <div class="success-burst" aria-hidden="true"></div>
-        <div class="metric"><b>05</b><span>Output</span></div>
-        <div class="active-ring"></div>
+        <div class="icon-wrap"><span class="icon" aria-hidden="true">5</span></div>
+        <span class="tag">Output</span>
+        <h2>Treated stream</h2>
+        <p>Conceptual end point: cleaner water after mineralization steps.</p>
+        <div class="metric"><span>Stage 05</span></div>
       </article>
     </section>
 
-    <!-- Control Panel -->
     <section class="control-panel">
       <div class="monitor">
-        <strong>PROCESS MONITOR</strong>
-        <span id="stageText">Ready — press Run Simulation to begin the conceptual process flow.</span>
+        <strong>What is happening</strong>
+        <span id="stageText">Press Run to walk through the five steps one by one.</span>
       </div>
       <div class="progress-wrap">
         <div class="progress"><span id="progressBar"></span></div>
         <div class="progress-labels">
-          <span>Feed</span><span>Matrix</span><span>Biology</span><span>Conversion</span><span>Output</span>
+          <span>Feed</span><span>Matrix</span><span>Biology</span><span>Convert</span><span>Output</span>
         </div>
       </div>
       <div class="actions">
-        <button id="play" type="button" class="btn-primary">
-          <span class="btn-icon">▶</span> Run Simulation
-        </button>
-        <button id="reset" type="button" class="btn-secondary">
-          <span class="btn-icon">↺</span> Reset
-        </button>
+        <button id="play" type="button" class="btn-primary">Run process</button>
+        <button id="reset" type="button" class="btn-secondary">Reset</button>
       </div>
     </section>
 
     <section class="legend">
-      <div class="legend-item"><span class="dot input"></span> Polymer Feed</div>
-      <div class="legend-item"><span class="dot matrix-dot"></span> Biochar–Hydrogel</div>
-      <div class="legend-item"><span class="dot bio"></span> Microbial Core</div>
-      <div class="legend-item"><span class="dot convert"></span> Degradation</div>
-      <div class="legend-item"><span class="dot output-dot"></span> Treated Output</div>
-      <p class="disclaimer">Conceptual systems visualization for SIH 2026 — not a validated operating protocol.</p>
+      <div class="legend-item"><span class="dot input"></span> Feed</div>
+      <div class="legend-item"><span class="dot matrix-dot"></span> Matrix</div>
+      <div class="legend-item"><span class="dot bio"></span> Microbes</div>
+      <div class="legend-item"><span class="dot convert"></span> Conversion</div>
+      <div class="legend-item"><span class="dot output-dot"></span> Output</div>
+      <p class="disclaimer">Demonstration only — conceptual model for SIH 2026, not a validated plant design.</p>
     </section>
 
     <footer>
-      <span>BioHub · PEG Biodegradation Prototype</span>
-      <span class="sep">·</span>
-      <span>SIH 2026 Clean & Green Technology</span>
-      <span class="sep">·</span>
-      <span>Team Marge Organics</span>
+      BioHub · PEG Biodegradation · SIH 2026 Clean & Green Technology · Team Marge Organics
     </footer>
   </main>
 
