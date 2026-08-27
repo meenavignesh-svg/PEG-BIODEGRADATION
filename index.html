@@ -1,140 +1,143 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BioHub | PEG Biodegradation · SIH 2026</title>
-  <meta name="description" content="3D process diagram for PEG biodegradation. Team Marge Organics · SIH 2026." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+  <meta name="description" content="PEG process diagram. Team Marge Organics. SIH 2026." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="app diagram-only">
-
-    <header class="mini-bar">
-      <div>
-        <span class="eyebrow">SIH 2026 · Team Marge Organics</span>
+  <main class="app">
+    <header class="bar">
+      <div class="bar-left">
+        <p class="eyebrow">SIH 2026 · Team Marge Organics</p>
         <h1>BioHub <span>PEG process</span></h1>
       </div>
-      <div class="status-panel">
-        <div class="status" id="systemStatus">
-          <i class="pulse-dot"></i>
-          <span>Ready</span>
+      <div class="bar-right">
+        <div class="status" id="status" data-state="idle">
+          <span class="status-dot"></span>
+          <span class="status-text">Ready</span>
         </div>
-        <div class="stage-counter">Step <b id="stageNum">0</b> of 5</div>
+        <p class="step-label">Step <strong id="stepNum">0</strong> / 5</p>
       </div>
     </header>
 
-    <section class="diagram" id="diagram" aria-label="3D process diagram">
-      <div class="flow-track"><div class="flow-energy"></div></div>
-
-      <article class="node feed" data-step="0">
-        <div class="shape-wrap" aria-hidden="true">
-          <svg class="shape" viewBox="0 0 48 48" fill="none">
-            <path d="M24 6C24 6 12 20 12 28a12 12 0 0 0 24 0C36 20 24 6 24 6Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
-            <circle cx="24" cy="28" r="4" fill="currentColor" opacity=".35"/>
-          </svg>
-        </div>
-        <span class="tag">Input</span>
-        <h2>Polymer feed</h2>
-        <p>Wastewater with PEG comes in.</p>
-        <div class="metric"><span>Stage 01</span></div>
-      </article>
-
-      <div class="connector" data-from="0"><span class="arrow-icon">→</span></div>
-
-      <article class="node matrix" data-step="1">
-        <div class="shape-wrap" aria-hidden="true">
-          <svg class="shape" viewBox="0 0 48 48" fill="none">
-            <path d="M24 8l12 7v14l-12 7-12-7V15l12-7Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
-            <path d="M24 18l6 3.5v7L24 32l-6-3.5v-7L24 18Z" stroke="currentColor" stroke-width="1.6" opacity=".55"/>
-          </svg>
-        </div>
-        <span class="tag">Support</span>
-        <h2>Biochar–hydrogel</h2>
-        <p>Porous wet bed that holds the bacteria.</p>
-        <div class="matrix-grid" aria-hidden="true"></div>
-        <div class="metric"><span>Stage 02</span></div>
-      </article>
-
-      <div class="connector" data-from="1"><span class="arrow-icon">→</span></div>
-
-      <article class="node microbes" data-step="2">
-        <div class="shape-wrap" aria-hidden="true">
-          <svg class="shape" viewBox="0 0 48 48" fill="none">
-            <circle cx="18" cy="22" r="7" stroke="currentColor" stroke-width="2"/>
-            <circle cx="30" cy="22" r="7" stroke="currentColor" stroke-width="2"/>
-            <circle cx="24" cy="32" r="7" stroke="currentColor" stroke-width="2"/>
-            <circle cx="18" cy="22" r="2.5" fill="currentColor" opacity=".4"/>
-            <circle cx="30" cy="22" r="2.5" fill="currentColor" opacity=".4"/>
-            <circle cx="24" cy="32" r="2.5" fill="currentColor" opacity=".4"/>
-          </svg>
-        </div>
-        <span class="tag">Biology</span>
-        <h2>Bacterial team</h2>
-        <div class="microbe-list">
-          <div class="microbe">
-            <b>I. sakaiensis</b>
-            <small>Starts breaking the polymer</small>
-          </div>
-          <div class="microbe">
-            <b>P. putida</b>
-            <small>Uses the smaller pieces</small>
-          </div>
-          <div class="microbe">
-            <b>B. subtilis</b>
-            <small>Biofilm and enzymes</small>
-          </div>
-        </div>
-      </article>
-
-      <div class="connector" data-from="2"><span class="arrow-icon">→</span></div>
-
-      <article class="node conversion" data-step="3">
-        <div class="shape-wrap" aria-hidden="true">
-          <svg class="shape" viewBox="0 0 48 48" fill="none">
-            <rect x="8" y="18" width="12" height="8" rx="4" stroke="currentColor" stroke-width="2"/>
-            <rect x="18" y="18" width="12" height="8" rx="4" stroke="currentColor" stroke-width="2"/>
-            <rect x="30" y="18" width="10" height="8" rx="4" stroke="currentColor" stroke-width="2" stroke-dasharray="3 2"/>
-            <path d="M28 14l4-4M28 34l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity=".7"/>
-          </svg>
-        </div>
-        <span class="tag">Conversion</span>
-        <h2>Breakdown</h2>
-        <p>Long chains become shorter pieces.</p>
-        <div class="particle-field">
-          <i></i><i></i><i></i><i></i><i></i><i></i>
-        </div>
-        <div class="metric"><span>Stage 04</span></div>
-      </article>
-
-      <div class="connector" data-from="3"><span class="arrow-icon">→</span></div>
-
-      <article class="node output" data-step="4">
-        <div class="shape-wrap" aria-hidden="true">
-          <svg class="shape" viewBox="0 0 48 48" fill="none">
-            <circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="2.2"/>
-            <path d="M16 24l5 5 11-12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <span class="tag">Output</span>
-        <h2>Treated water</h2>
-        <p>End of the path.</p>
-        <div class="metric"><span>Stage 05</span></div>
-      </article>
-    </section>
-
-    <section class="control-panel compact">
-      <span id="stageText">Press Run to play the steps.</span>
-      <div class="progress"><span id="progressBar"></span></div>
-      <div class="actions">
-        <button id="play" type="button" class="btn-primary">Run</button>
-        <button id="reset" type="button" class="btn-secondary">Reset</button>
+    <section class="stage" id="stage" aria-label="Process diagram">
+      <div class="rail" aria-hidden="true">
+        <div class="rail-fill" id="railFill"></div>
+        <div class="rail-glow"></div>
       </div>
+
+      <article class="card" data-step="0">
+        <div class="card-face">
+          <div class="shape-box">
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+              <path d="M24 6C24 6 12 20 12 28a12 12 0 0024 0C36 20 24 6 24 6z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+              <circle cx="24" cy="28" r="4" fill="currentColor" opacity="0.35"/>
+            </svg>
+          </div>
+          <p class="tag">Input</p>
+          <h2>Polymer feed</h2>
+          <p class="desc">Wastewater with PEG comes in.</p>
+          <p class="stage-no">01</p>
+        </div>
+      </article>
+
+      <div class="link" data-link="0" aria-hidden="true"><span></span></div>
+
+      <article class="card" data-step="1">
+        <div class="card-face">
+          <div class="shape-box">
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+              <path d="M24 8l12 7v14l-12 7-12-7V15l12-7z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+              <path d="M24 18l6 3.5v7L24 32l-6-3.5v-7L24 18z" fill="none" stroke="currentColor" stroke-width="1.6" opacity="0.55"/>
+            </svg>
+          </div>
+          <p class="tag">Support</p>
+          <h2>Biochar–hydrogel</h2>
+          <p class="desc">Porous wet bed that holds the bacteria.</p>
+          <div class="grid-anim" aria-hidden="true"></div>
+          <p class="stage-no">02</p>
+        </div>
+      </article>
+
+      <div class="link" data-link="1" aria-hidden="true"><span></span></div>
+
+      <article class="card" data-step="2">
+        <div class="card-face">
+          <div class="shape-box">
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+              <circle cx="18" cy="22" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+              <circle cx="30" cy="22" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+              <circle cx="24" cy="32" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+              <circle cx="18" cy="22" r="2.5" fill="currentColor" opacity="0.4"/>
+              <circle cx="30" cy="22" r="2.5" fill="currentColor" opacity="0.4"/>
+              <circle cx="24" cy="32" r="2.5" fill="currentColor" opacity="0.4"/>
+            </svg>
+          </div>
+          <p class="tag">Biology</p>
+          <h2>Bacterial team</h2>
+          <ul class="bugs">
+            <li><strong>I. sakaiensis</strong><span>Starts breaking the polymer</span></li>
+            <li><strong>P. putida</strong><span>Uses the smaller pieces</span></li>
+            <li><strong>B. subtilis</strong><span>Biofilm and enzymes</span></li>
+          </ul>
+          <p class="stage-no">03</p>
+        </div>
+      </article>
+
+      <div class="link" data-link="2" aria-hidden="true"><span></span></div>
+
+      <article class="card" data-step="3">
+        <div class="card-face">
+          <div class="shape-box">
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+              <rect x="8" y="18" width="12" height="8" rx="4" fill="none" stroke="currentColor" stroke-width="2"/>
+              <rect x="18" y="18" width="12" height="8" rx="4" fill="none" stroke="currentColor" stroke-width="2"/>
+              <rect x="30" y="18" width="10" height="8" rx="4" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="3 2"/>
+              <path d="M28 14l4-4M28 34l4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.7"/>
+            </svg>
+          </div>
+          <p class="tag">Conversion</p>
+          <h2>Breakdown</h2>
+          <p class="desc">Long chains become shorter pieces.</p>
+          <div class="dots" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <p class="stage-no">04</p>
+        </div>
+      </article>
+
+      <div class="link" data-link="3" aria-hidden="true"><span></span></div>
+
+      <article class="card" data-step="4">
+        <div class="card-face">
+          <div class="shape-box">
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+              <circle cx="24" cy="24" r="14" fill="none" stroke="currentColor" stroke-width="2.2"/>
+              <path d="M16 24l5 5 11-12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <p class="tag">Output</p>
+          <h2>Treated water</h2>
+          <p class="desc">End of the path.</p>
+          <p class="stage-no">05</p>
+        </div>
+      </article>
     </section>
 
+    <footer class="controls">
+      <p class="msg" id="msg">Press Run to play the steps.</p>
+      <div class="bar-track" aria-hidden="true"><div class="bar-thumb" id="bar"></div></div>
+      <div class="btns">
+        <button type="button" class="btn btn-run" id="run">Run</button>
+        <button type="button" class="btn btn-reset" id="reset">Reset</button>
+      </div>
+    </footer>
   </main>
   <script src="script.js"></script>
 </body>
