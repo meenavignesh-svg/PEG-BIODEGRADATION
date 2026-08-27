@@ -13,13 +13,11 @@
 <body>
   <main class="app">
 
-    <!-- Top bar -->
     <div class="topbar">
       <span class="eyebrow">SIH 2026 · Clean & Green Technology</span>
       <span class="team-badge">Team Marge Organics</span>
     </div>
 
-    <!-- Problem → Solution -->
     <header class="hero">
       <div class="hero-text">
         <h1>BioHub <span>PEG Biodegradation</span></h1>
@@ -35,7 +33,6 @@
       </div>
     </header>
 
-    <!-- Metric strip -->
     <section class="metrics" aria-label="Key design points">
       <div class="metric-card">
         <b>Target</b>
@@ -55,12 +52,17 @@
       </div>
     </section>
 
-    <!-- 3D process diagram -->
     <section class="diagram" id="diagram" aria-label="PEG biodegradation process steps">
       <div class="flow-track"><div class="flow-energy"></div></div>
 
+      <!-- 1 Feed: droplet -->
       <article class="node feed" data-step="0">
-        <div class="icon-wrap"><span class="icon">1</span></div>
+        <div class="shape-wrap" aria-hidden="true">
+          <svg class="shape" viewBox="0 0 48 48" fill="none">
+            <path d="M24 6C24 6 12 20 12 28a12 12 0 0 0 24 0C36 20 24 6 24 6Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+            <circle cx="24" cy="28" r="4" fill="currentColor" opacity=".35"/>
+          </svg>
+        </div>
         <span class="tag">Input</span>
         <h2>Polymer feed</h2>
         <p>PEG-containing wastewater enters the treatment train.</p>
@@ -69,8 +71,14 @@
 
       <div class="connector" data-from="0"><span class="arrow-icon">→</span></div>
 
+      <!-- 2 Matrix: hexagon grid -->
       <article class="node matrix" data-step="1">
-        <div class="icon-wrap"><span class="icon">2</span></div>
+        <div class="shape-wrap" aria-hidden="true">
+          <svg class="shape" viewBox="0 0 48 48" fill="none">
+            <path d="M24 8l12 7v14l-12 7-12-7V15l12-7Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+            <path d="M24 18l6 3.5v7L24 32l-6-3.5v-7L24 18Z" stroke="currentColor" stroke-width="1.6" opacity=".55"/>
+          </svg>
+        </div>
         <span class="tag">Support</span>
         <h2>Biochar–hydrogel</h2>
         <p>Porous bed that holds cells, keeps moisture and increases contact surface.</p>
@@ -80,8 +88,18 @@
 
       <div class="connector" data-from="1"><span class="arrow-icon">→</span></div>
 
+      <!-- 3 Microbes: three circles cluster -->
       <article class="node microbes" data-step="2">
-        <div class="icon-wrap"><span class="icon">3</span></div>
+        <div class="shape-wrap" aria-hidden="true">
+          <svg class="shape" viewBox="0 0 48 48" fill="none">
+            <circle cx="18" cy="22" r="7" stroke="currentColor" stroke-width="2"/>
+            <circle cx="30" cy="22" r="7" stroke="currentColor" stroke-width="2"/>
+            <circle cx="24" cy="32" r="7" stroke="currentColor" stroke-width="2"/>
+            <circle cx="18" cy="22" r="2.5" fill="currentColor" opacity=".4"/>
+            <circle cx="30" cy="22" r="2.5" fill="currentColor" opacity=".4"/>
+            <circle cx="24" cy="32" r="2.5" fill="currentColor" opacity=".4"/>
+          </svg>
+        </div>
         <span class="tag">Biology</span>
         <h2>Microbial consortium</h2>
         <div class="microbe-list">
@@ -102,8 +120,16 @@
 
       <div class="connector" data-from="2"><span class="arrow-icon">→</span></div>
 
+      <!-- 4 Conversion: broken chain / links -->
       <article class="node conversion" data-step="3">
-        <div class="icon-wrap"><span class="icon">4</span></div>
+        <div class="shape-wrap" aria-hidden="true">
+          <svg class="shape" viewBox="0 0 48 48" fill="none">
+            <rect x="8" y="18" width="12" height="8" rx="4" stroke="currentColor" stroke-width="2"/>
+            <rect x="18" y="18" width="12" height="8" rx="4" stroke="currentColor" stroke-width="2"/>
+            <rect x="30" y="18" width="10" height="8" rx="4" stroke="currentColor" stroke-width="2" stroke-dasharray="3 2"/>
+            <path d="M28 14l4-4M28 34l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity=".7"/>
+          </svg>
+        </div>
         <span class="tag">Conversion</span>
         <h2>Degradation path</h2>
         <p>Long chains → oligomers → smaller metabolites that cells can use.</p>
@@ -115,8 +141,14 @@
 
       <div class="connector" data-from="3"><span class="arrow-icon">→</span></div>
 
+      <!-- 5 Output: check in circle -->
       <article class="node output" data-step="4">
-        <div class="icon-wrap"><span class="icon">5</span></div>
+        <div class="shape-wrap" aria-hidden="true">
+          <svg class="shape" viewBox="0 0 48 48" fill="none">
+            <circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="2.2"/>
+            <path d="M16 24l5 5 11-12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
         <span class="tag">Output</span>
         <h2>Treated stream</h2>
         <p>Conceptual end point after progressive breakdown and mineralization steps.</p>
@@ -124,7 +156,6 @@
       </article>
     </section>
 
-    <!-- Controls -->
     <section class="control-panel">
       <div class="monitor">
         <strong>What is happening</strong>
@@ -142,7 +173,6 @@
       </div>
     </section>
 
-    <!-- Science panel -->
     <section class="science">
       <button type="button" class="science-toggle" id="scienceToggle" aria-expanded="false">
         <span>Science notes (why this design)</span>
