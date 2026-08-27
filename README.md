@@ -9,11 +9,21 @@ Interactive conceptual systems model demonstrating a proposed pathway for **poly
 
 ---
 
-## Live Demo
+## 🌐 Live Demo (GitHub Pages)
 
-**[Open BioHub Simulation →](https://meenavignesh-svg.github.io/PEG-BIODEGRADATION/)**
+### **[▶ Open BioHub Simulation](https://meenavignesh-svg.github.io/PEG-BIODEGRADATION/)**
 
-*(Enable GitHub Pages on the `main` branch if the link is not yet active.)*
+**Direct link:** https://meenavignesh-svg.github.io/PEG-BIODEGRADATION/
+
+### Enable GitHub Pages (one-time setup)
+
+If the link above shows 404:
+
+1. Go to the repository → **Settings** → **Pages**
+2. Under **Source**, select **Deploy from a branch**
+3. Branch: `main` · Folder: `/ (root)`
+4. Click **Save**
+5. Wait 1–2 minutes, then open the link again
 
 ---
 
@@ -65,9 +75,8 @@ Lightweight and dependency-free for fast loading and easy demonstration.
 git clone https://github.com/meenavignesh-svg/PEG-BIODEGRADATION.git
 cd PEG-BIODEGRADATION
 
-# Open in browser (any static server or simply)
-# Double-click index.html
-# or
+# Open in browser (any static server or simply double-click index.html)
+# or use a local server:
 python -m http.server 8000
 # then visit http://localhost:8000
 ```
@@ -83,6 +92,15 @@ PEG-BIODEGRADATION/
 ├── script.js       # Simulation logic
 └── README.md       # This file
 ```
+
+---
+
+## Links
+
+| Resource | URL |
+|----------|-----|
+| **Live Demo (Pages)** | https://meenavignesh-svg.github.io/PEG-BIODEGRADATION/ |
+| **Repository** | https://github.com/meenavignesh-svg/PEG-BIODEGRADATION |
 
 ---
 
