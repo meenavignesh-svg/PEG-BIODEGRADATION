@@ -1,7 +1,3 @@
-/* =========================================================
-   BioHub – SIH 2026 Simulation Engine
-   ========================================================= */
-
 (() => {
   const nodes = [...document.querySelectorAll('.node')];
   const connectors = [...document.querySelectorAll('.connector')];
@@ -14,19 +10,19 @@
   const diagram = document.getElementById('diagram');
 
   const labels = [
-    'Polymer feed enters the treatment train — PEG-rich waste stream is introduced.',
-    'Waste contacts the biochar–hydrogel immobilization platform — high surface area support matrix.',
-    'Microbial consortium activates — I. sakaiensis, P. putida and B. subtilis coordinate roles.',
-    'Depolymerization & conversion underway — polymer chains break into intermediates and metabolites.',
-    'Treated stream reaches conceptual mineralization endpoint — process cycle complete.'
+    'Polymer feed enters — PEG-rich waste is introduced into the train.',
+    'Waste meets the biochar–hydrogel matrix — cells sit on a porous support.',
+    'Consortium at work — three roles share chain attack, intermediate use, and biofilm support.',
+    'Chains break down — long polymer → shorter pieces → metabolites.',
+    'Treated stream — conceptual end of the mineralization path.'
   ];
 
   const statusLabels = [
-    'FEED ACTIVE',
-    'MATRIX ONLINE',
-    'BIOLOGY ENGAGED',
-    'CONVERTING',
-    'OUTPUT READY'
+    'Feed',
+    'Matrix',
+    'Biology',
+    'Converting',
+    'Output'
   ];
 
   let timer = null;
@@ -53,31 +49,26 @@
 
     bar.style.width = '0%';
     stageNum.textContent = '0';
-    stageText.textContent = 'Ready — press Run Simulation to begin the conceptual process flow.';
-    playBtn.innerHTML = '<span class="btn-icon">▶</span> Run Simulation';
+    stageText.textContent = 'Press Run to walk through the five steps one by one.';
+    playBtn.textContent = 'Run process';
     playBtn.classList.remove('running');
-    setStatus(null, 'SYSTEM READY');
+    setStatus(null, 'Ready');
   }
 
   function activateStep(i) {
-    // Mark previous as completed
     nodes.forEach((n, idx) => {
       n.classList.remove('active');
       if (idx < i) n.classList.add('completed');
       else n.classList.remove('completed');
     });
 
-    // Activate current node
     nodes[i].classList.add('active');
 
-    // Highlight connectors up to current
     connectors.forEach((c, idx) => {
       c.classList.toggle('active', idx < i);
     });
 
-    // Progress & text
-    const pct = ((i + 1) / nodes.length) * 100;
-    bar.style.width = `${pct}%`;
+    bar.style.width = `${((i + 1) / nodes.length) * 100}%`;
     stageNum.textContent = String(i + 1);
     stageText.textContent = labels[i];
     setStatus('running', statusLabels[i]);
@@ -87,7 +78,6 @@
     index++;
 
     if (index >= nodes.length) {
-      // Finished
       running = false;
       nodes.forEach(n => {
         n.classList.remove('active');
@@ -96,16 +86,16 @@
       connectors.forEach(c => c.classList.add('active'));
       bar.style.width = '100%';
       stageNum.textContent = '5';
-      stageText.textContent = 'Simulation complete. Conceptual mineralization endpoint reached. Press Run Again to replay.';
-      playBtn.innerHTML = '<span class="btn-icon">▶</span> Run Again';
+      stageText.textContent = 'Full path shown. Press Run again to repeat.';
+      playBtn.textContent = 'Run again';
       playBtn.classList.remove('running');
-      setStatus('complete', 'CYCLE COMPLETE');
+      setStatus('complete', 'Done');
       diagram.classList.remove('simulating');
       return;
     }
 
     activateStep(index);
-    timer = setTimeout(step, 1750);
+    timer = setTimeout(step, 1700);
   }
 
   function start() {
@@ -113,16 +103,13 @@
     clearSimulation();
     running = true;
     diagram.classList.add('simulating');
-    playBtn.innerHTML = '<span class="btn-icon">Ⅱ</span> Running…';
+    playBtn.textContent = 'Running…';
     playBtn.classList.add('running');
-    setStatus('running', 'INITIALIZING');
-    stageText.textContent = 'Initializing process train…';
-
-    // Small delay before first step for polish
-    timer = setTimeout(step, 400);
+    setStatus('running', 'Starting');
+    stageText.textContent = 'Starting the five-step walkthrough…';
+    timer = setTimeout(step, 350);
   }
 
-  // Event listeners
   playBtn.addEventListener('click', () => {
     if (running) return;
     start();
@@ -130,19 +117,16 @@
 
   resetBtn.addEventListener('click', clearSimulation);
 
-  // Optional: click a node to jump (only when not running)
   nodes.forEach((node, i) => {
     node.addEventListener('click', () => {
       if (running) return;
       clearSimulation();
-      // Show single stage highlight
       index = i;
       activateStep(i);
-      stageText.textContent = labels[i] + ' (manual focus)';
-      setStatus(null, 'MANUAL FOCUS');
+      stageText.textContent = labels[i] + ' (selected)';
+      setStatus(null, 'Focus');
     });
   });
 
-  // Init
   clearSimulation();
 })();
