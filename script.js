@@ -12,14 +12,14 @@
   const scienceBody = document.getElementById('scienceBody');
 
   const labels = [
-    'Polymer feed enters — PEG-containing wastewater starts the train.',
-    'Biochar–hydrogel support — cells sit on a porous, wet matrix for longer contact.',
-    'Consortium active — polymer-facing role, intermediate use, and biofilm support work together.',
-    'Degradation path — long chains shorten into oligomers and usable metabolites.',
-    'Treated stream — conceptual end after progressive breakdown steps.'
+    'PEG wastewater enters the process.',
+    'Waste reaches the biochar-hydrogel bed where bacteria sit.',
+    'Bacterial team is active: break polymer, use small pieces, support biofilm.',
+    'Long chains are broken into shorter pieces.',
+    'End of the path: treated water step.'
   ];
 
-  const statusLabels = ['Feed', 'Matrix', 'Biology', 'Converting', 'Output'];
+  const statusLabels = ['Feed', 'Matrix', 'Biology', 'Breakdown', 'Output'];
 
   let timer = null;
   let index = -1;
@@ -43,8 +43,8 @@
     diagram.classList.remove('simulating');
     bar.style.width = '0%';
     stageNum.textContent = '0';
-    stageText.textContent = 'Press Run process to walk through all five steps.';
-    playBtn.textContent = 'Run process';
+    stageText.textContent = 'Press Run to see all five steps.';
+    playBtn.textContent = 'Run';
     playBtn.classList.remove('running');
     setStatus(null, 'Ready');
   }
@@ -74,7 +74,7 @@
       connectors.forEach(c => c.classList.add('active'));
       bar.style.width = '100%';
       stageNum.textContent = '5';
-      stageText.textContent = 'Full path shown. Press Run again to repeat.';
+      stageText.textContent = 'All steps shown. Press Run to watch again.';
       playBtn.textContent = 'Run again';
       playBtn.classList.remove('running');
       setStatus('complete', 'Done');
@@ -93,7 +93,7 @@
     playBtn.textContent = 'Running…';
     playBtn.classList.add('running');
     setStatus('running', 'Starting');
-    stageText.textContent = 'Starting the five-step walkthrough…';
+    stageText.textContent = 'Starting…';
     timer = setTimeout(step, 350);
   }
 
@@ -109,8 +109,8 @@
       clearSimulation();
       index = i;
       activateStep(i);
-      stageText.textContent = labels[i] + ' (selected)';
-      setStatus(null, 'Focus');
+      stageText.textContent = labels[i];
+      setStatus(null, 'Step');
     });
   });
 
