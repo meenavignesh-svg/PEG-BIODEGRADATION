@@ -8,22 +8,18 @@
   const playBtn = document.getElementById('play');
   const resetBtn = document.getElementById('reset');
   const diagram = document.getElementById('diagram');
+  const scienceToggle = document.getElementById('scienceToggle');
+  const scienceBody = document.getElementById('scienceBody');
 
   const labels = [
-    'Polymer feed enters — PEG-rich waste is introduced into the train.',
-    'Waste meets the biochar–hydrogel matrix — cells sit on a porous support.',
-    'Consortium at work — three roles share chain attack, intermediate use, and biofilm support.',
-    'Chains break down — long polymer → shorter pieces → metabolites.',
-    'Treated stream — conceptual end of the mineralization path.'
+    'Polymer feed enters — PEG-containing wastewater starts the train.',
+    'Biochar–hydrogel support — cells sit on a porous, wet matrix for longer contact.',
+    'Consortium active — polymer-facing role, intermediate use, and biofilm support work together.',
+    'Degradation path — long chains shorten into oligomers and usable metabolites.',
+    'Treated stream — conceptual end after progressive breakdown steps.'
   ];
 
-  const statusLabels = [
-    'Feed',
-    'Matrix',
-    'Biology',
-    'Converting',
-    'Output'
-  ];
+  const statusLabels = ['Feed', 'Matrix', 'Biology', 'Converting', 'Output'];
 
   let timer = null;
   let index = -1;
@@ -42,14 +38,12 @@
     }
     running = false;
     index = -1;
-
     nodes.forEach(n => n.classList.remove('active', 'completed'));
     connectors.forEach(c => c.classList.remove('active'));
     diagram.classList.remove('simulating');
-
     bar.style.width = '0%';
     stageNum.textContent = '0';
-    stageText.textContent = 'Press Run to walk through the five steps one by one.';
+    stageText.textContent = 'Press Run process to walk through all five steps.';
     playBtn.textContent = 'Run process';
     playBtn.classList.remove('running');
     setStatus(null, 'Ready');
@@ -61,13 +55,8 @@
       if (idx < i) n.classList.add('completed');
       else n.classList.remove('completed');
     });
-
     nodes[i].classList.add('active');
-
-    connectors.forEach((c, idx) => {
-      c.classList.toggle('active', idx < i);
-    });
-
+    connectors.forEach((c, idx) => c.classList.toggle('active', idx < i));
     bar.style.width = `${((i + 1) / nodes.length) * 100}%`;
     stageNum.textContent = String(i + 1);
     stageText.textContent = labels[i];
@@ -76,7 +65,6 @@
 
   function step() {
     index++;
-
     if (index >= nodes.length) {
       running = false;
       nodes.forEach(n => {
@@ -93,7 +81,6 @@
       diagram.classList.remove('simulating');
       return;
     }
-
     activateStep(index);
     timer = setTimeout(step, 1700);
   }
@@ -111,8 +98,7 @@
   }
 
   playBtn.addEventListener('click', () => {
-    if (running) return;
-    start();
+    if (!running) start();
   });
 
   resetBtn.addEventListener('click', clearSimulation);
@@ -127,6 +113,14 @@
       setStatus(null, 'Focus');
     });
   });
+
+  if (scienceToggle && scienceBody) {
+    scienceToggle.addEventListener('click', () => {
+      const open = scienceToggle.getAttribute('aria-expanded') === 'true';
+      scienceToggle.setAttribute('aria-expanded', String(!open));
+      scienceBody.hidden = open;
+    });
+  }
 
   clearSimulation();
 })();
