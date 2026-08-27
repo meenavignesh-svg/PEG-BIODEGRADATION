@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>BioHub | PEG Biodegradation · SIH 2026</title>
-  <meta name="description" content="Interactive conceptual model of PEG waste treatment using biochar–hydrogel immobilization and a microbial consortium. SIH 2026 Clean & Green Technology · Team Marge Organics." />
+  <meta name="description" content="PEG waste treatment idea using biochar-hydrogel and a microbial team. SIH 2026 Clean and Green Technology. Team Marge Organics." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
@@ -21,8 +21,8 @@
     <header class="hero">
       <div class="hero-text">
         <h1>BioHub <span>PEG Biodegradation</span></h1>
-        <p class="lead"><strong>Problem:</strong> Polyethylene glycol (PEG) is widely used in pharma, cosmetics and industry. Higher-molecular-weight PEG can persist longer in water and soil before microbes fully break it down.</p>
-        <p class="lead"><strong>Our idea:</strong> Hold a working microbial team on a biochar–hydrogel support so contact time, local enzyme activity and process stability improve — then walk the waste through a clear five-step path to a treated stream.</p>
+        <p class="lead"><strong>Problem:</strong> PEG is used in medicines, cosmetics and industry. Heavier PEG can stay in water and soil longer before bacteria break it fully.</p>
+        <p class="lead"><strong>Our idea:</strong> Keep useful bacteria on a biochar and hydrogel bed so they stay in place longer, work on the waste, and move it step by step toward cleaner water.</p>
       </div>
       <div class="status-panel">
         <div class="status" id="systemStatus">
@@ -33,29 +33,28 @@
       </div>
     </header>
 
-    <section class="metrics" aria-label="Key design points">
+    <section class="metrics" aria-label="Key points">
       <div class="metric-card">
         <b>Target</b>
-        <span>PEG-rich aqueous waste</span>
+        <span>PEG in wastewater</span>
       </div>
       <div class="metric-card">
         <b>Support</b>
-        <span>Biochar + hydrogel matrix</span>
+        <span>Biochar + hydrogel bed</span>
       </div>
       <div class="metric-card">
         <b>Biology</b>
-        <span>3-role microbial consortium</span>
+        <span>Three bacteria with different jobs</span>
       </div>
       <div class="metric-card">
         <b>Goal</b>
-        <span>Shorter chains → metabolites</span>
+        <span>Break long chains into smaller pieces</span>
       </div>
     </section>
 
-    <section class="diagram" id="diagram" aria-label="PEG biodegradation process steps">
+    <section class="diagram" id="diagram" aria-label="Process steps">
       <div class="flow-track"><div class="flow-energy"></div></div>
 
-      <!-- 1 Feed: droplet -->
       <article class="node feed" data-step="0">
         <div class="shape-wrap" aria-hidden="true">
           <svg class="shape" viewBox="0 0 48 48" fill="none">
@@ -65,13 +64,12 @@
         </div>
         <span class="tag">Input</span>
         <h2>Polymer feed</h2>
-        <p>PEG-containing wastewater enters the treatment train.</p>
+        <p>Wastewater with PEG comes in.</p>
         <div class="metric"><span>Stage 01</span></div>
       </article>
 
       <div class="connector" data-from="0"><span class="arrow-icon">→</span></div>
 
-      <!-- 2 Matrix: hexagon grid -->
       <article class="node matrix" data-step="1">
         <div class="shape-wrap" aria-hidden="true">
           <svg class="shape" viewBox="0 0 48 48" fill="none">
@@ -81,14 +79,13 @@
         </div>
         <span class="tag">Support</span>
         <h2>Biochar–hydrogel</h2>
-        <p>Porous bed that holds cells, keeps moisture and increases contact surface.</p>
+        <p>Porous wet bed that holds the bacteria in place.</p>
         <div class="matrix-grid" aria-hidden="true"></div>
         <div class="metric"><span>Stage 02</span></div>
       </article>
 
       <div class="connector" data-from="1"><span class="arrow-icon">→</span></div>
 
-      <!-- 3 Microbes: three circles cluster -->
       <article class="node microbes" data-step="2">
         <div class="shape-wrap" aria-hidden="true">
           <svg class="shape" viewBox="0 0 48 48" fill="none">
@@ -101,26 +98,25 @@
           </svg>
         </div>
         <span class="tag">Biology</span>
-        <h2>Microbial consortium</h2>
+        <h2>Bacterial team</h2>
         <div class="microbe-list">
           <div class="microbe">
             <b>I. sakaiensis</b>
-            <small>Polymer-facing / depolymerization role</small>
+            <small>Starts breaking the polymer</small>
           </div>
           <div class="microbe">
             <b>P. putida</b>
-            <small>Intermediate consumption</small>
+            <small>Uses the smaller pieces</small>
           </div>
           <div class="microbe">
             <b>B. subtilis</b>
-            <small>Biofilm & enzyme support</small>
+            <small>Helps with biofilm and enzymes</small>
           </div>
         </div>
       </article>
 
       <div class="connector" data-from="2"><span class="arrow-icon">→</span></div>
 
-      <!-- 4 Conversion: broken chain / links -->
       <article class="node conversion" data-step="3">
         <div class="shape-wrap" aria-hidden="true">
           <svg class="shape" viewBox="0 0 48 48" fill="none">
@@ -131,8 +127,8 @@
           </svg>
         </div>
         <span class="tag">Conversion</span>
-        <h2>Degradation path</h2>
-        <p>Long chains → oligomers → smaller metabolites that cells can use.</p>
+        <h2>Breakdown</h2>
+        <p>Long PEG chains become shorter pieces that bacteria can use.</p>
         <div class="particle-field">
           <i></i><i></i><i></i><i></i><i></i><i></i>
         </div>
@@ -141,7 +137,6 @@
 
       <div class="connector" data-from="3"><span class="arrow-icon">→</span></div>
 
-      <!-- 5 Output: check in circle -->
       <article class="node output" data-step="4">
         <div class="shape-wrap" aria-hidden="true">
           <svg class="shape" viewBox="0 0 48 48" fill="none">
@@ -150,16 +145,16 @@
           </svg>
         </div>
         <span class="tag">Output</span>
-        <h2>Treated stream</h2>
-        <p>Conceptual end point after progressive breakdown and mineralization steps.</p>
+        <h2>Treated water</h2>
+        <p>End of the path after breakdown steps.</p>
         <div class="metric"><span>Stage 05</span></div>
       </article>
     </section>
 
     <section class="control-panel">
       <div class="monitor">
-        <strong>What is happening</strong>
-        <span id="stageText">Press Run process to walk through all five steps.</span>
+        <strong>Status</strong>
+        <span id="stageText">Press Run to see all five steps.</span>
       </div>
       <div class="progress-wrap">
         <div class="progress"><span id="progressBar"></span></div>
@@ -168,33 +163,33 @@
         </div>
       </div>
       <div class="actions">
-        <button id="play" type="button" class="btn-primary">Run process</button>
+        <button id="play" type="button" class="btn-primary">Run</button>
         <button id="reset" type="button" class="btn-secondary">Reset</button>
       </div>
     </section>
 
     <section class="science">
       <button type="button" class="science-toggle" id="scienceToggle" aria-expanded="false">
-        <span>Science notes (why this design)</span>
+        <span>Notes on the design</span>
         <span class="chevron" aria-hidden="true">▾</span>
       </button>
       <div class="science-body" id="scienceBody" hidden>
         <div class="science-grid">
           <div>
-            <h3>PEG in the environment</h3>
-            <p>PEG is water-soluble and used in many products. Lower MW grades break down more readily; higher MW material often needs chain shortening before full microbial use. Standard tests (e.g. OECD-style) show PEG can reach high biodegradation under the right inoculum and conditions.</p>
+            <h3>About PEG</h3>
+            <p>PEG dissolves in water and shows up in many products. Smaller PEG is easier for microbes to use. Larger PEG often needs to be cut shorter first. Lab tests under good conditions can show strong biodegradation.</p>
           </div>
           <div>
-            <h3>Why immobilize?</h3>
-            <p>Biochar offers surface area and a mild protective niche. Hydrogel holds water and cells in place. Together they aim for better retention, longer contact, and more stable operation than free-floating cells alone — a common pattern in enzyme and cell immobilization work.</p>
+            <h3>Why a bed?</h3>
+            <p>Biochar gives surface area. Hydrogel holds water and cells. Keeping bacteria on the bed can help them stay put and work longer than if they float free.</p>
           </div>
           <div>
-            <h3>Consortium logic</h3>
-            <p>Roles are split on purpose: one face on polymer attack, one on smaller intermediates, one on biofilm and enzymes. Real PEG literature often cites <em>Pseudomonas</em> and <em>Sphingomonas</em> specialists; here the three strains illustrate a team design for the demo. Lab validation would fix the exact species and kinetics.</p>
+            <h3>Why three bacteria?</h3>
+            <p>One starts on the polymer, one uses the smaller bits, one helps with biofilm and enzymes. Papers on PEG often mention Pseudomonas and Sphingomonas. Our three names show a team idea for this demo. Lab work would choose the final strains.</p>
           </div>
           <div>
-            <h3>Honest scope</h3>
-            <p>This page is a systems story for SIH judges — not a pilot plant or a claim of measured % removal. Next steps in a real project: bench tests, MW tracking, toxicity checks, and scale-up design.</p>
+            <h3>What this is not</h3>
+            <p>This page explains our idea for SIH. It is not a full plant design and we are not claiming measured removal numbers yet. Next work would be lab tests and scale planning.</p>
           </div>
         </div>
       </div>
@@ -203,10 +198,10 @@
     <section class="legend">
       <div class="legend-item"><span class="dot input"></span> Feed</div>
       <div class="legend-item"><span class="dot matrix-dot"></span> Matrix</div>
-      <div class="legend-item"><span class="dot bio"></span> Microbes</div>
-      <div class="legend-item"><span class="dot convert"></span> Conversion</div>
+      <div class="legend-item"><span class="dot bio"></span> Bacteria</div>
+      <div class="legend-item"><span class="dot convert"></span> Breakdown</div>
       <div class="legend-item"><span class="dot output-dot"></span> Output</div>
-      <p class="disclaimer">Demonstration only — conceptual model for SIH 2026, not a validated plant design.</p>
+      <p class="disclaimer">Demo for SIH 2026. Not a finished plant design.</p>
     </section>
 
     <footer>
